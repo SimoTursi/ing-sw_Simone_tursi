@@ -12,6 +12,9 @@ public class TestSuppTecLivelli {
         handler.setNext(new Operatore())
                 .setNext(new Tecnico())
                 .setNext(new TeamSviluppo());
-        handler.handle(ticket);
+        boolean gestito = handler.handle(ticket);
+        if (!gestito) {
+            System.out.println("Ticket #" + ticket.ID() + " non risolvibile: " + ticket.descrizione());
+        }
     }
 }
